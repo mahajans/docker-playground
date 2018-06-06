@@ -20,6 +20,12 @@
 ### Commands to start the swarm and deploy services
 
 ```
+# Build image
+docker build -t friendlyhello .
+
+# tag image to push to image hub
+docker tag friendlyhello smahajan12/friendlyhello:0.1
+
 # start the swarm
 docker swarm init
 
@@ -30,7 +36,7 @@ docker stack deploy -c docker-compose.yml <stackname>
 docker service ls
 
 # shutdown the services
-docker stack rm getstarted
+docker stack rm <stackname>
 
 # close the swarm
 docker swarm leave --force
