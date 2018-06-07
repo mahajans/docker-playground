@@ -26,6 +26,9 @@ docker build -t friendlyhello .
 # tag image to push to image hub
 docker tag friendlyhello smahajan12/friendlyhello:0.1
 
+# push the image to docker hub
+docker push smahajan12/friendlyhello:0.1
+
 # start the swarm
 docker swarm init
 
