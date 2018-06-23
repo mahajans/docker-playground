@@ -13,19 +13,17 @@ services:
         condition: on-failure
     ports:
       - "4000:80"
-    networks:
-      - webnet
+    depends_on:
+      - "redis"
+    volumes:
+      - .:/app
   redis:
     image: redis
     ports:
       - "6464:6379"
     volumes:
-      - "./data:/data"
+      - "./redis:/data"
     deploy:
       placement:
         constraints: [node.role == manager]
     command: redis-server --appendonly yes
-    networks:
-      - webnet
-networks:
-  webnet:
